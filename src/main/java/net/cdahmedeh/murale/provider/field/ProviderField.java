@@ -40,8 +40,8 @@ public class ProviderField {
 		try {
 			field.setAccessible(true);
 
-			if (is(EnumSet.class)) {
-				EnumSet<?> enumSet = (EnumSet<?>) field.get(provider);
+			if (is(Set.class)) {
+				Set<?> enumSet = (Set<?>) field.get(provider);
 				return map(enumSet, e -> e.toString());
 			}
 		} catch (IllegalArgumentException | IllegalAccessException e) {
@@ -67,7 +67,7 @@ public class ProviderField {
 	}
 
 	public boolean isMultiSelectable() {
-		return is(EnumSet.class);
+		return is(Set.class);
 	}
 
 	private boolean is(Class<?> clazz) {

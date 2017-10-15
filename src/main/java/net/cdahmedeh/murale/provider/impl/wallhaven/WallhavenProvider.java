@@ -9,9 +9,10 @@ import static net.cdahmedeh.murale.util.CollectionUtil.join;
 import static net.cdahmedeh.murale.util.CollectionUtil.map;
 import static net.cdahmedeh.murale.util.CollectionUtil.truncate;
 
-import java.util.EnumSet;
 import java.util.List;
+import java.util.Set;
 
+import com.google.common.collect.ImmutableSet;
 import com.ivkos.wallhaven4j.Wallhaven;
 import com.ivkos.wallhaven4j.models.misc.enums.Category;
 import com.ivkos.wallhaven4j.models.misc.enums.Order;
@@ -45,11 +46,11 @@ public class WallhavenProvider extends Provider {
 	
 	@Getter @Setter
 	@FieldInfo(name = "Categories", enumeration = Category.class)
-	private EnumSet<Category> categories = EnumSet.of(GENERAL);
+	private Set<Category> categories = ImmutableSet.of(GENERAL);
 	
 	@Getter @Setter
 	@FieldInfo(name = "Purities", enumeration = Purity.class)
-	private EnumSet<Purity> purities = EnumSet.of(SFW);
+	private Set<Purity> purities = ImmutableSet.of(SFW);
 	
 	@Getter @Setter
 	@FieldInfo(name = "Sorting Method", enumeration = Sorting.class)

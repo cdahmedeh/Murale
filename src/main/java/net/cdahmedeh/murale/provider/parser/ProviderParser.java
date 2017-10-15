@@ -2,19 +2,23 @@ package net.cdahmedeh.murale.provider.parser;
 
 import java.util.List;
 
-import com.google.gson.Gson;
+import org.yaml.snakeyaml.Yaml;
 
 import net.cdahmedeh.murale.provider.Provider;
 
 public class ProviderParser {
-	private static Gson gson = new Gson();
+	private static final Yaml yaml;
+	
+	static {
+		yaml = new Yaml();
+	}
 	
 	public static String toConfigurationText(List<Provider> providers) {
-		return gson.toJson(providers);
+		return yaml.dump(providers);
 	}
 	
 	@SuppressWarnings("unchecked")
 	public static List<Provider> fromConfigurationText(String text) {
-		return gson.fromJson(text, List.class);
+		return yaml.loadAs(text, List.class);
 	}
 }

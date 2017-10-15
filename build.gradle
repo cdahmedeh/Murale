@@ -10,6 +10,9 @@ dependencies {
     // Annotation Processors
     implementation 'org.projectlombok:lombok:1.16.18'
 
+    // Parsers
+    implementation 'org.yaml:snakeyaml:1.18'
+
     // Utilities
     implementation 'org.apache.commons:commons-lang3:3.6'
     implementation 'com.google.guava:guava:21.0'
