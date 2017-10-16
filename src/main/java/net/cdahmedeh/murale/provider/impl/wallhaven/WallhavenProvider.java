@@ -9,10 +9,9 @@ import static net.cdahmedeh.murale.util.CollectionUtil.join;
 import static net.cdahmedeh.murale.util.CollectionUtil.map;
 import static net.cdahmedeh.murale.util.CollectionUtil.truncate;
 
+import java.util.EnumSet;
 import java.util.List;
-import java.util.Set;
 
-import com.google.common.collect.ImmutableSet;
 import com.ivkos.wallhaven4j.Wallhaven;
 import com.ivkos.wallhaven4j.models.misc.enums.Category;
 import com.ivkos.wallhaven4j.models.misc.enums.Order;
@@ -34,34 +33,27 @@ import net.cdahmedeh.murale.domain.Wallpaper;
 import net.cdahmedeh.murale.error.ConnectivityException;
 import net.cdahmedeh.murale.error.ProviderException;
 import net.cdahmedeh.murale.provider.Provider;
-import net.cdahmedeh.murale.provider.field.FieldInfo;
 
 @ToString
 public class WallhavenProvider extends Provider {
 	private static final int WALLPAPERS_PER_PAGE = 24;
 	
 	@Getter @Setter
-	@FieldInfo(name = "Keywords")
 	private List<String> keywords = newArrayList();
 	
 	@Getter @Setter
-	@FieldInfo(name = "Categories", enumeration = Category.class)
-	private Set<Category> categories = ImmutableSet.of(GENERAL);
+	private EnumSet<Category> categories = EnumSet.of(GENERAL);
 	
 	@Getter @Setter
-	@FieldInfo(name = "Purities", enumeration = Purity.class)
-	private Set<Purity> purities = ImmutableSet.of(SFW);
+	private EnumSet<Purity> purities = EnumSet.of(SFW);
 	
 	@Getter @Setter
-	@FieldInfo(name = "Sorting Method", enumeration = Sorting.class)
 	private Sorting sorting = RANDOM;
 	
 	@Getter @Setter
-	@FieldInfo(name = "Order", enumeration = Order.class)
 	private Order order = DESC;
 	
 	@Getter @Setter
-	@FieldInfo(name = "Top List Range", enumeration = ToplistRange.class)
 	private ToplistRange topListRange = null;
 	
 	@Override
