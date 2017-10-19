@@ -1,6 +1,7 @@
 package net.cdahmedeh.murale.provider.impl.wallhaven;
 
 import static com.google.common.collect.Lists.newArrayList;
+import static com.google.common.collect.Sets.newHashSet;
 import static com.ivkos.wallhaven4j.models.misc.enums.Category.GENERAL;
 import static com.ivkos.wallhaven4j.models.misc.enums.Order.DESC;
 import static com.ivkos.wallhaven4j.models.misc.enums.Purity.SFW;
@@ -9,8 +10,8 @@ import static net.cdahmedeh.murale.util.CollectionUtil.join;
 import static net.cdahmedeh.murale.util.CollectionUtil.map;
 import static net.cdahmedeh.murale.util.CollectionUtil.truncate;
 
-import java.util.EnumSet;
 import java.util.List;
+import java.util.Set;
 
 import com.ivkos.wallhaven4j.Wallhaven;
 import com.ivkos.wallhaven4j.models.misc.enums.Category;
@@ -42,10 +43,10 @@ public class WallhavenProvider extends Provider {
 	private List<String> keywords = newArrayList();
 	
 	@Getter @Setter
-	private EnumSet<Category> categories = EnumSet.of(GENERAL);
+	private Set<Category> categories = newHashSet(GENERAL);
 	
 	@Getter @Setter
-	private EnumSet<Purity> purities = EnumSet.of(SFW);
+	private Set<Purity> purities = newHashSet(SFW);
 	
 	@Getter @Setter
 	private Sorting sorting = RANDOM;
