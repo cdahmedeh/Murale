@@ -11,6 +11,10 @@ public class CollectionUtil {
 	public static <T> String join(Collection<T> collection, Function<T, String> mapper, String delimeter) {
 		return collection.stream().map(mapper).collect(Collectors.joining(delimeter));
 	}
+	
+	public static String join(Collection<String> collection, String delimeter) {
+		return collection.stream().collect(Collectors.joining(delimeter));
+	}
 
 	public static <I, O> List<O> map(List<I> list, Function<I, O> mapper) {
 		return list.stream().map(mapper).collect(Collectors.toList());
