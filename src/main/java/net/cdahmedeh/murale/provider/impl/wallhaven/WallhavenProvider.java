@@ -101,6 +101,7 @@ public class WallhavenProvider extends Provider {
 		wallpaper.setOrigin(whWallpaper.getUrl());
 		wallpaper.setUrl(whWallpaper.getImageUrl());
 		wallpaper.setTitle(join(whWallpaper.getTags(), t -> t.toString(), ","));
+		wallpaper.setProvider(this);
 		
 		try {
 			wallpaper.setAuthor(whWallpaper.getUser().getUsername());

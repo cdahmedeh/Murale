@@ -19,10 +19,10 @@ public class ProviderHandler {
 		while (remaining > 0) {
 			try {
 				Provider provider = random(providers);
-				int random = ThreadLocalRandom.current().nextInt(remaining);
+				int random = 1 + ThreadLocalRandom.current().nextInt(remaining);
 				List<Wallpaper> results = provider.query(random);
 				
-				wallpapers.addAll(wallpapers);
+				wallpapers.addAll(results);
 				remaining -= results.size(); 
 			} catch (ProviderException e) {
 				continue;

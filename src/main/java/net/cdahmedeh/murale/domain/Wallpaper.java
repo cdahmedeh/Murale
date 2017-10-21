@@ -3,6 +3,7 @@ package net.cdahmedeh.murale.domain;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import net.cdahmedeh.murale.provider.Provider;
 
 @ToString
 public class Wallpaper {
@@ -20,4 +21,8 @@ public class Wallpaper {
 	
 	@Getter @Setter
 	private String author;
+	
+	@Getter @Setter
+	private Provider provider;
+	
 }
