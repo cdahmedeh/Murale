@@ -92,6 +92,8 @@ public class WallhavenProvider extends Provider {
 	private Wallpaper mapWhWallpaper(com.ivkos.wallhaven4j.models.wallpaper.Wallpaper whWallpaper) {
 		Wallpaper wallpaper = new Wallpaper();
 		
+		wallpaper.setId("wh-" + whWallpaper.getId().toString());
+		wallpaper.setOrigin(whWallpaper.getUrl());
 		wallpaper.setUrl(whWallpaper.getImageUrl());
 		wallpaper.setTitle(join(whWallpaper.getTags(), t -> t.toString(), ","));
 		
