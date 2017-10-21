@@ -14,5 +14,7 @@ public abstract class Provider {
 	
 	public abstract String getName();
 	
+	public abstract String getSearch();
+	
 	public abstract List<Wallpaper> query(final int count) throws ConnectivityException, ProviderException;
 }

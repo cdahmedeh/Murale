@@ -63,6 +63,11 @@ public class WallhavenProvider extends Provider {
 	}
 	
 	@Override
+	public String getSearch() {
+		return "Keywords: [" + join(keywords, ",") + "]";
+	}
+	
+	@Override
 	public List<Wallpaper> query(final int count) throws ConnectivityException, ProviderException {
 		try {
 			Wallhaven wh = new Wallhaven();
