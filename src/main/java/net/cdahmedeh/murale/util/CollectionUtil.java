@@ -30,8 +30,9 @@ public class CollectionUtil {
 	}
 
 	public static void truncate(List<?> list, int bound) {
-		int size = list.size();
-		int cut = bound > size ? size : bound;
-		list.subList(cut, size).clear();
+		bound = Math.max(list.size(), bound);
+		while (list.size() > bound) {
+			list.remove(random(list));
+		}
 	}
 }
