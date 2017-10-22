@@ -83,8 +83,6 @@ public class WallhavenProvider extends Provider {
 					.minimumResolution(new com.ivkos.wallhaven4j.models.misc.Resolution(resolution.getWidth(), resolution.getHeight()))
 					.build();
 			
-			System.out.println(query.getUrl());
-			
 			List<com.ivkos.wallhaven4j.models.wallpaper.Wallpaper> results = wh.search(query);
 			
 			List<Wallpaper> wallpapers = map(results, this::mapWhWallpaper);
