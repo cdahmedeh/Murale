@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 import lombok.Getter;
+import net.cdahmedeh.murale.domain.Resolution;
 import net.cdahmedeh.murale.domain.Wallpaper;
 import net.cdahmedeh.murale.error.ConnectivityException;
 import net.cdahmedeh.murale.error.ProviderException;
@@ -16,5 +17,5 @@ public abstract class Provider {
 	
 	public abstract String getSearch();
 	
-	public abstract List<Wallpaper> query(final int count) throws ConnectivityException, ProviderException;
+	public abstract List<Wallpaper> query(final int count, final Resolution resolution) throws ConnectivityException, ProviderException;
 }

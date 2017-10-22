@@ -30,6 +30,7 @@ import com.ivkos.wallhaven4j.util.searchquery.SearchQueryBuilder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import net.cdahmedeh.murale.domain.Resolution;
 import net.cdahmedeh.murale.domain.Wallpaper;
 import net.cdahmedeh.murale.error.ConnectivityException;
 import net.cdahmedeh.murale.error.ProviderException;
@@ -68,7 +69,7 @@ public class WallhavenProvider extends Provider {
 	}
 	
 	@Override
-	public List<Wallpaper> query(final int count) throws ConnectivityException, ProviderException {
+	public List<Wallpaper> query(final int count, final Resolution resolution) throws ConnectivityException, ProviderException {
 		try {
 			Wallhaven wh = new Wallhaven();
 			
@@ -79,7 +80,10 @@ public class WallhavenProvider extends Provider {
 					.sorting(sorting)
 					.order(order)
 					.pages(count/WALLPAPERS_PER_PAGE + 1)
+					.minimumResolution(new com.ivkos.wallhaven4j.models.misc.Resolution(resolution.getWidth(), resolution.getHeight()))
 					.build();
+			
+			System.out.println(query.getUrl());
 			
 			List<com.ivkos.wallhaven4j.models.wallpaper.Wallpaper> results = wh.search(query);
 			
