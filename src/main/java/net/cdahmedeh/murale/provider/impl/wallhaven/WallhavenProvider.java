@@ -73,15 +73,20 @@ public class WallhavenProvider extends Provider {
 		try {
 			Wallhaven wh = new Wallhaven();
 			
-			SearchQuery query = new SearchQueryBuilder()
+			SearchQueryBuilder builder = new SearchQueryBuilder()
 					.keywords(keywords)
 					.categories(categories)
 					.purity(purities)
 					.sorting(sorting)
 					.order(order)
-					.pages(count/WALLPAPERS_PER_PAGE + 1)
-					.minimumResolution(new com.ivkos.wallhaven4j.models.misc.Resolution(resolution.getWidth(), resolution.getHeight()))
-					.build();
+					.pages(count/WALLPAPERS_PER_PAGE + 1);
+			
+			if (resolution != null) {
+				builder = builder
+						.minimumResolution(new com.ivkos.wallhaven4j.models.misc.Resolution(resolution.getWidth(), resolution.getHeight()));
+			}
+			
+			SearchQuery query = builder.build();
 			
 			List<com.ivkos.wallhaven4j.models.wallpaper.Wallpaper> results = wh.search(query);
 			

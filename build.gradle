@@ -18,7 +18,7 @@ dependencies {
     implementation 'com.google.guava:guava:21.0'
     
     // Provider Libraries
-    api 'com.github.cdahmedeh:wallhaven4j:72ff166'
+    api 'com.github.cdahmedeh:wallhaven4j:073baef'
 
     // Test Frameworks
     testImplementation 'junit:junit:4.12'
